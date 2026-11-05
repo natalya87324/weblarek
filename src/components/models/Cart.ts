@@ -1,4 +1,4 @@
-import { IProduct } from '../../types/index.ts';
+import { IProduct } from '../../types/index';
 
 export class Cart {
   private items: IProduct[];
@@ -12,15 +12,11 @@ export class Cart {
   }
 
   addItem(product: IProduct): void {
-    const isAdded = this.hasItem(product.id);
-    if (!isAdded) {
       this.items.push(product);
-    }
-    
   }
 
-  removeItem(product: IProduct): void {
-    this.items = this.items.filter(item => item.id !== product.id);
+  removeItem(id: string): void {
+    this.items = this.items.filter(item => item.id !== id);
   }
 
   clear(): void {

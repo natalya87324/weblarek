@@ -1,4 +1,4 @@
-import { IProduct } from '../../types/index.ts';
+import { IProduct } from '../../types/index';
 
 export class Products {
   private items: IProduct[];

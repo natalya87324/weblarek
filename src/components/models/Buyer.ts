@@ -1,7 +1,7 @@
-import { TPayment, IBuyer, IBuyerErrors } from '../../types/index.ts';
+import { TPayment, IBuyer, TBuyerErrors } from '../../types/index';
 
 export class Buyer {
-  private payment: TPayment;
+  private payment: TPayment | '';
   private email: string;
   private phone: string;
   private address: string;
@@ -45,8 +45,8 @@ export class Buyer {
     this.address = '';
   }
 
-  validate(): IBuyerErrors {
-    const errors: IBuyerErrors = {};
+  validate(): TBuyerErrors {
+    const errors: TBuyerErrors = {};
 
     if (this.payment === '') {
       errors.payment = 'Не выбран тип оплаты';

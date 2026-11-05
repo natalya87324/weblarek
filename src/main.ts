@@ -1,11 +1,11 @@
 import './scss/styles.scss';
-import {apiProducts} from '../src/utils/data.ts';
-import { Products } from './components/models/Products.ts';
-import { Cart } from './components/models/Cart.ts';
-import { Buyer } from './components/models/Buyer.ts';
-import { Api } from './components/base/Api.ts';
-import { WebLarekApi } from './components/api/WebLarekApi.ts';
-import { API_URL } from './utils/constants.ts';
+import {apiProducts} from './utils/data';
+import { Products } from './components/models/Products';
+import { Cart } from './components/models/Cart';
+import { Buyer } from './components/models/Buyer';
+import { Api } from './components/base/Api';
+import { WebLarekApi } from './components/api/WebLarekApi';
+import { API_URL } from './utils/constants';
 
 
 //создает экземпляр класса Products
@@ -55,7 +55,7 @@ console.log('Наличие второго товара в корзине:', car
 console.log('Наличие третьего товара в корзине:', cartModel.hasItem(apiProducts.items[2].id));
 
 //удаляет товар из корзины по его id
-cartModel.removeItem(apiProducts.items[0]);
+cartModel.removeItem(apiProducts.items[0].id);
 
 //возвращает массив товаров в корзине после удаления товара
 console.log('Корзина после удаления товара:',cartModel.getItems());
@@ -88,7 +88,7 @@ console.log('После заполнения телефона:', buyer.getData()
 //проверка полей на пустые значения
 console.log('Ошибки:', buyer.validate());
 
-buyer.setPayment('cash');
+buyer.setPayment('card');
 buyer.setEmail('text@test.com');
 buyer.setPhone('+79999999999');
 buyer.setAddress('101000, Москва, ул. Театральная, д.18');
